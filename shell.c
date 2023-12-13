@@ -29,17 +29,17 @@ int main()
 				perror("NO MEMORY ALLOCATED");
 				return (-1);
 			}
-			token = _strtok(cpy_buff, delim);
+			token = strtok(cpy_buff, delim);
 			count = 0;
 			while (token != NULL)
 			{
 				count++;
-				token = _strtok(NULL, delim);
+				token = strtok(NULL, delim);
 			}
 			free(cpy_buff);
 			cpy_buff = NULL;
 			argv = malloc(sizeof(char *) * (count + 1));
-			token = _strtok(buff, delim);
+			token = strtok(buff, delim);
 			i = 0;
 			while (token != NULL)
 			{
@@ -49,7 +49,7 @@ int main()
 					perror("NO MEMORY ALLOCATED");
 					return (-1);
 				}
-				token = _strtok(NULL, delim);
+				token = strtok(NULL, delim);
 				i++;
 			}
 			argv[i] = NULL;
@@ -113,17 +113,17 @@ int main()
                                 perror("NO MEMORY ALLOCATED");
                                 return (-1);
                         }
-                        token = _strtok(cpy_buff, delim);
+                        token = strtok(cpy_buff, delim);
                         count = 0;
                         while(token != NULL)
                         {
                                 count++;
-                                token = _strtok(NULL, delim);
+                                token = strtok(NULL, delim);
                         }
                         free(cpy_buff);
                         cpy_buff = NULL;
                         argv = malloc(sizeof(char *) * (count + 1));
-                        token = _strtok(buff, delim);
+                        token = strtok(buff, delim);
                         i = 0;
                         while (token != NULL)
                         {
@@ -133,7 +133,7 @@ int main()
                                         perror("NO MEMORY ALLOCATED");
                                         return (-1);
                                 }
-                                token = _strtok(NULL, delim);
+                                token = strtok(NULL, delim);
                                 i++;
                         }
                         argv[i] = NULL;
