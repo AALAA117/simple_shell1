@@ -8,12 +8,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <stdlib.h>
-#include<fcntl.h>
-#include <dirent.h>
 #include <sys/wait.h>
-
+#include <errno.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 /* Global environemnt */
 extern char **environ;
 
@@ -33,4 +34,6 @@ char *_strtok(char *s1, const char *s2);
 void read_file(const char *filename, char **arr[]);
 
 /*shell functions*/
+void memory_handler(int __attribute__((unused))signum);
+char *_which(char *command);
 #endif

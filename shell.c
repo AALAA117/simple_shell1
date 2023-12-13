@@ -8,14 +8,14 @@
 int main(int ac, char **av);
 int main(int ac, char **av)
 {
-	if (signal(SIGINT, memory_handler) == SIG_ERR)
+	if (signal(SIGINT, memory_handler) == 0)
 	{
 		perror("signal");
 		return (EXIT_FAILURE);
 	}
 
-	pid_t pid;
 	char *buff = NULL;
+	pid_t pid;
 	char *cpy_buff = NULL;
 	size_t size = 0;
 	ssize_t read;
@@ -30,7 +30,7 @@ int main(int ac, char **av)
 		write(STDOUT_FILENO, "$ ", 2);
 		while ((read = getline(&buff, &size, stdin)) != -1)
 		{
-			buff[strcspn(buff, "\n")] = '\0';
+			buff[_strcspn(buff, "\n")] = '\0';
 			if (buff[0] == '\0')
 			{
 				write(STDOUT_FILENO, "$ ", 2);
