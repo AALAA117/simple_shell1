@@ -8,11 +8,6 @@
 int main(int ac, char **av);
 int main(int ac, char **av)
 {
-	if (signal(SIGINT, memory_handler) == 0)
-	{
-		perror("signal");
-		return (EXIT_FAILURE);
-	}
 
 	char *buff = NULL;
 	pid_t pid;
@@ -21,9 +16,10 @@ int main(int ac, char **av)
 	ssize_t read;
 	char *token;
 	char *delim = " \n";
-	int count, i, status, j;
+	int count, i, status, j, k;
 	char **argv = NULL;
 	char *path = NULL;
+    (void)ac;
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -68,6 +64,17 @@ int main(int ac, char **av)
 				i++;
 			}
 			argv[i] = NULL;
+			if (_strcmp(argv[0], "exit") == 0)
+			   exit(0);
+			if (_strcmp(argv[0], "env") == 0)
+			   {
+                k = 0;
+                while (environ[k]) 
+				{
+				_puts(environ[k++]);
+				_puts("\n"); 
+                }
+			   }
 			path = _which(argv[0]);
 			if (path == NULL)
 			{
@@ -144,6 +151,17 @@ int main(int ac, char **av)
 				i++;
 			}
 			argv[i] = NULL;
+			if (_strcmp(argv[0], "exit") == 0)
+			   exit(0);
+			if (_strcmp(argv[0], "env") == 0)
+			   {
+                k = 0;
+                while (environ[k]) 
+				{
+				_puts(environ[k++]);
+				_puts("\n"); 
+                }
+			   }
 			free(buff);
 			pid = fork();
 			if (pid == -1)
