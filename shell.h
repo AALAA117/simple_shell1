@@ -32,7 +32,5 @@ char *_strtok(char *s1, const char *s2);
 /*files functions*/
 void read_file(const char *filename, char **arr[]);
 
-/*linked lists functions*/
 /*shell functions*/
-char *_which(char *command);
 #endif

@@ -14,7 +14,7 @@ int main()
 	ssize_t read;
 	char *token;
 	char *delim = " \n";
-	int count, i, status, j;
+	int count, i, status, j, k;
 	char **argv;
 	char *env[] = {"HOME=/", "PATH=/bin", NULL};
     extern char **environ;
@@ -57,10 +57,10 @@ int main()
 			   exit(0);
 			if (_strcmp(argv[0], "env") == 0)
 			   {
-                int i = 0;
-                while(environ[i]) 
+                k = 0;
+                while (environ[k]) 
 				{
-				_puts(environ[i++]);
+				_puts(environ[k++]);
 				_puts("\n"); 
                 }
 			   }
@@ -85,11 +85,8 @@ int main()
 				}
 				if (execve(argv[0], argv, env) == -1)
 				{
-					if (execve(_which(argv[0]), argv, env) == -1)
-					{
-						perror("./shell");
-						exit(1);
-					}
+					perror("./shell");
+					exit(1);
 				}
 				exit(0);
 			}
