@@ -1,12 +1,11 @@
 #include "shell.h"
 /**
  * _strcspn - calculate the number of characters before the 1st occurrence
-of character present in both the string.
+ * of character present in both the string.
  *@str1 : The Target string in which search has to be made.
- *@str2 : Argument string containing characters
-to match in target string.
+ *@str2 : Argument string containing characters to match in target string.
  * Return: the number of characters before the 1st occurrence
-of character present in both the string.
+ * of character present in both the string.
  */
 
 int _strcspn(const char *str1, const char *str2)
@@ -29,8 +28,7 @@ return (count);
 *@str1 : string to be scanned.
 *@str2 : string containing the
 *characters to match.
-*Return : the number of characters in the initial segment of str1
-*which consist only of characters from str2
+* Return: number of bytes.
 */
 size_t _strspn(const char *str1, const char *str2)
 {
