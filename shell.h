@@ -34,6 +34,6 @@ char *_strtok(char *s1, const char *s2);
 void read_file(const char *filename, char **arr[]);
 
 /*shell functions*/
-void memory_handler(int __attribute__((unused))signum);
+void memory_handler(int signum, char **buff);
 char *_which(char *command);
 #endif
