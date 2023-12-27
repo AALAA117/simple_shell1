@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	size_t size = 0;
 	ssize_t read;
 	char *token;
-	char *delim = " \n";
+	char *delim = " \0";
 	int count, i, status, j, k;
 	char **argv;
 	char *env[] = {"HOME=/", "PATH=/bin", NULL};

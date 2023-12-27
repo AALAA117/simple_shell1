@@ -17,7 +17,6 @@
 #include <fcntl.h>
 /* Global environemnt */
 extern char **environ;
-
 /*string functions*/
 char *starts_with(const char *str1, const char *str2);
 char *_strcat(char *dest, char *src);
