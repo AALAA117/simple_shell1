@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	size_t size = 0;
 	ssize_t read;
 	char *token;
-	char *delim = " \0";
+	char *delim = " \n";
 	int count, i, status, j, k;
 	char **argv;
 	char *env[] = {"HOME=/", "PATH=/bin", NULL};
@@ -189,7 +189,6 @@ int main(int ac, char **av)
 				free(argv);
 			}
 		}
-		memory_handler(0, &buff);
 	}
 	return (0);
 }
